@@ -8,16 +8,19 @@ public class Main {
         int n = sc.nextInt();
         int[] arr = new int[n];
 
+        // TODO: Read n integers into an array
         for (int i = 0; i < n; i++) {
-            if (sc.hasNextInt()) arr[i] = sc.nextInt();
+            if (sc.hasNextInt()) {
+                arr[i] = sc.nextInt();
+            }
         }
 
+        // TODO: Implement BUBBLE SORT manually (no Arrays.sort)
         int swaps = 0;
-        // Optimized Bubble Sort
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
                 if (arr[j] > arr[j + 1]) {
-                    // Swap elements
+                    // swap
                     int temp = arr[j];
                     arr[j] = arr[j + 1];
                     arr[j + 1] = temp;
@@ -26,14 +29,16 @@ public class Main {
             }
         }
 
-        // Print sorted array
+        // TODO: Print sorted array ascending, space-separated
         for (int i = 0; i < n; i++) {
             System.out.print(arr[i]);
-            if (i < n - 1) System.out.print(" ");
+            if (i < n - 1) {
+                System.out.print(" ");
+            }
         }
         System.out.println();
 
-        // Print swaps
+        // TODO: Then print: "Swaps: X" where X = total number of swaps performed
         System.out.println("Swaps: " + swaps);
     }
 }
