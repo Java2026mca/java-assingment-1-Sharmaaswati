@@ -3,51 +3,49 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-          int[] arr = new int[n];
-        // TODO: Read n integers into an array
-        //       Implement BUBBLE SORT manually (no Arrays.sort)
-        //       Print sorted array ascending, space-separated
-        //       Then print: "Swaps: X" where X = total number of swaps performed
-        //
-        // Input:
-        // 5
-        // 64 34 25 12 22
-        //
-        // Output:
-        // 12 22 25 34 64
-        // Swaps: 7
-
-// Input
-for (int i = 0; i < n; i++) {
-    arr[i] = sc.nextInt();
-}
-
-int swaps = 0;
-
-// Bubble Sort
-for (int i = 0; i < n - 1; i++) {
-    for (int j = 0; j < n - i - 1; j++) {
-        if (arr[j] > arr[j + 1]) {
-            // swap
-            int temp = arr[j];
-            arr[j] = arr[j + 1];
-            arr[j + 1] = temp;
-            swaps++;
-        }
-    }
-}
-
-// Print sorted array
-for (int i = 0; i < n; i++) {
-    System.out.print(arr[i]);
-    if (i < n - 1) System.out.print(" ");
-}
-System.out.println();
-
-// Print swap count
-System.out.println("Swaps: " + swaps);
         
+        // Read the size of the array
+        if (!sc.hasNextInt()) return;
+        int n = sc.nextInt();
+        int[] arr = new int[n];
 
+        // Input: Read n integers into the array
+        for (int i = 0; i < n; i++) {
+            if (sc.hasNextInt()) {
+                arr[i] = sc.nextInt();
+            }
+        }
+
+        int swaps = 0;
+
+        // Optimized Bubble Sort logic
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    // Perform the swap
+                    int temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                    
+                    // Increment swap counter
+                    swaps++;
+                }
+            }
+        }
+
+        // Print sorted array ascending, space-separated
+        for (int i = 0; i < n; i++) {
+            System.out.print(arr[i]);
+            // Prevent trailing space at the end of the line
+            if (i < n - 1) {
+                System.out.print(" ");
+            }
+        }
+        
+        // Move to a new line after the array
+        System.out.println();
+
+        // Print total number of swaps
+        System.out.println("Swaps: " + swaps);
     }
 }
